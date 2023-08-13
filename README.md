@@ -47,4 +47,8 @@ npx prisma init --datasource-provider postgresql
 
 # Adicionado Prettier
 yarn add -D prettier
+
+
+# Inicia uma migrate do Prisma executando o que foi definido para o banco de dados em schema.prisma
+npx prisma migrate dev --name init
 ```
