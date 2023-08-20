@@ -48,7 +48,17 @@ npx prisma init --datasource-provider postgresql
 # Adicionado Prettier
 yarn add -D prettier
 
-
 # Inicia uma migrate do Prisma executando o que foi definido para o banco de dados em schema.prisma
 npx prisma migrate dev --name init
+
+# Adicionado o NextAuth no projeto
+# https://next-auth.js.org/getting-started/example
+yarn add next-auth
+
+# Adicionado o adapter do Prisma para o NextAuth, pois ele já tem o schema pronto para controle de autenticação
+# https://authjs.dev/reference/adapter/prisma
+yarn add @auth/prisma-adapter
+
+# Após adicionar os schemas para a autenticação com NextAuth é preciso rodar a migrate novamente
+npx prisma migrate dev --name auth
 ```
