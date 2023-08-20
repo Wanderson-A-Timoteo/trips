@@ -61,4 +61,7 @@ yarn add @auth/prisma-adapter
 
 # Após adicionar os schemas para a autenticação com NextAuth é preciso rodar a migrate novamente
 npx prisma migrate dev --name auth
+
+# Visualizar banco de dados com Prisma Studio
+npx prisma studio
 ```
