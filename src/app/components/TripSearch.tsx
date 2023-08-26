@@ -6,12 +6,12 @@ import React from "react";
 
 export default function TripSearch() {
   return(
-    <div className="container mx-auto p-5">
+    <div className="container mx-auto p-5 bg-search-background bg-cover bg-no-repeat">
       <h1 
         className="text-primaryDarker font-semibold text-2xl text-center"
       >
         Encontre sua próxima 
-        <span className="text-primary">viagem!</span>
+        <span className="text-primary"> viagem! </span>
       </h1>
 
       <div className="flex flex-col gap-4 mt-5">
