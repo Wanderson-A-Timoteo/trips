@@ -62,6 +62,9 @@ yarn add @auth/prisma-adapter
 # Após adicionar os schemas para a autenticação com NextAuth é preciso rodar a migrate novamente
 npx prisma migrate dev --name auth
 
+# Adicionado novos campos countryCode e recommended no banco de dados
+npx prisma migrate dev --name add_country_code_and_recommended
+
 # Visualizar banco de dados com Prisma Studio
 npx prisma studio
 
@@ -77,4 +80,16 @@ yarn add -D @types/react-datepicker
 
 # Adicionado lib para formatar valores BR
 yarn add react-currency-input-field
+
+# Adicionado ts-node para executar o seed.ts que contém o script para popular o banco de dados.(ts-node executa TypeScript diretamente em Node.js sem pré-compilação)
+yarn add ts-node
+
+# É preciso adicionar o script a seguir no package.json para o ts-node executar o seed.ts
+"prisma": {
+  "seed": "ts-node --compiler-options #{\"module\":\"CommonJS\"} --transpile-only src/lib/seed.ts"
+},
+
+# Após adicionar o script acima no arquivo package.js podemos executar o comando para popular o banco de dados
+npx prisma db seed
+
 ```
