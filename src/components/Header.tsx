@@ -31,7 +31,7 @@ const Header = () => {
       
       {status === "unauthenticated" && (
         <button 
-          className='text-primary tetxt-sm font-semibold' 
+          className='text-primary tetxt-sm font-semibold p-3 mr-2' 
           onClick={handleLoginClick}
         >
           Login

@@ -67,4 +67,10 @@ npx prisma studio
 
 # Adicionado biblioteca de icones do ReactJS
 yarn add react-icons
+
+# Adicionado tailwind-merge para definir a estilização dos Inputs, para que ao adicionar outros estilos nos componentes que ele é chamado, estes estilos definidos não sejam sobrescritos.
+yarn add tailwind-merge
+
+# Adicionado biblioteca react-datepicker para criar calendario e fns uma lib para manipular datas
+yarn add react-datepicker date-fns
 ```
