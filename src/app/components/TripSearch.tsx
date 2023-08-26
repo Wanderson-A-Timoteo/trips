@@ -1,3 +1,4 @@
+import Button from "@/components/Button";
 import CurrencyInput from "@/components/CurrencyInput";
 import DatePicker from "@/components/DatePicker";
 import Input from "@/components/Input";
@@ -24,7 +25,9 @@ export default function TripSearch() {
           />
           <CurrencyInput placeholder="Orçamento" />
         </div>
-      </div>      
+
+        <Button>Buscar</Button>
+      </div>
     </div>
   )
 }
