@@ -92,4 +92,14 @@ yarn add ts-node
 # Após adicionar o script acima no arquivo package.js podemos executar o comando para popular o banco de dados
 npx prisma db seed
 
+# Após executar o comando acima para executar o seed ocorreu erro, passei um tempinho para descobrir que era devido no arquivo tsconfig.json o "moduleResolution": "bundle", após alterar para "Node", funcionou. Certifique que essa propriedades estejam iguais ao exemplo:
+"compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    .
+    . o restante permanece igual
+    .
+
 ```
