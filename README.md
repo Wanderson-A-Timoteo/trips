@@ -64,4 +64,7 @@ npx prisma migrate dev --name auth
 
 # Visualizar banco de dados com Prisma Studio
 npx prisma studio
+
+# Adicionado biblioteca de icones do ReactJS
+yarn add react-icons
 ```
