@@ -1,3 +1,4 @@
+import CurrencyInput from "@/components/CurrencyInput";
 import DatePicker from "@/components/DatePicker";
 import Input from "@/components/Input";
 import React from "react";
@@ -21,7 +22,7 @@ export default function TripSearch() {
             className="w-full"
             onChange={() => {}}
           />
-          <Input placeholder="Orçamento" />
+          <CurrencyInput placeholder="Orçamento" />
         </div>
       </div>      
     </div>

@@ -74,4 +74,7 @@ yarn add tailwind-merge
 # Adicionado biblioteca react-datepicker para criar calendario e fns uma lib para manipular datas
 yarn add react-datepicker date-fns
 yarn add -D @types/react-datepicker
+
+# Adicionado lib para formatar valores BR
+yarn add react-currency-input-field
 ```
