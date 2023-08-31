@@ -116,3 +116,9 @@ Após executar o comando acima ocorreu erro, passei um tempinho para descobrir q
     .
     . o restante permanece igual
 ```
+
+Instalar lib para adicionar as bandeirinhas do país de origem do hotel/pousada entre outros.
+
+```bash
+yarn add react-country-flag
+```
