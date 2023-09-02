@@ -122,3 +122,9 @@ Instalar lib para adicionar as bandeirinhas do país de origem do hotel/pousada 
 ```bash
 yarn add react-country-flag
 ```
+
+Adicionar novo campo locationDescription no banco de dados, após adicionar poderemos visualizar com Prisma Studio.
+
+```bash
+npx prisma migrate dev --name add_location_description
+```
