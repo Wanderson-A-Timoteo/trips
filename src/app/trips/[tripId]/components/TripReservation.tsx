@@ -3,6 +3,7 @@
 import Button from "@/components/Button";
 import DatePicker from "@/components/DatePicker";
 import Input from "@/components/Input";
+import { differenceInDays } from "date-fns";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 
@@ -10,6 +11,7 @@ interface TripReservationProps {
   tripStartDate: Date;
   tripEndDate: Date;
   maxGuests: number;
+  pricePerDay: number;
 }
 
 interface TripReservationForm {
@@ -18,7 +20,7 @@ interface TripReservationForm {
   endDate: Date | null;
 }
 
-const TripReservation = ({ tripStartDate, tripEndDate, maxGuests }: TripReservationProps) => {
+const TripReservation = ({ tripStartDate, tripEndDate, maxGuests, pricePerDay }: TripReservationProps) => {
 
   const {
     register,
@@ -33,6 +35,7 @@ const TripReservation = ({ tripStartDate, tripEndDate, maxGuests }: TripReservat
   };
 
   const startDate = watch("startDate");
+  const endDate = watch("endDate");
 
   return (
     <div className="flex flex-col px-5">
@@ -98,20 +101,23 @@ const TripReservation = ({ tripStartDate, tripEndDate, maxGuests }: TripReservat
         className="mt-4"
         error={!!errors?.guests}
         errorMessage={errors?.guests?.message}
-        type="number"
       />
 
       <div className="flex justify-between mt-3">
         <p className="font-medium text-sm text-primaryDarker">Total: </p>
-        <p className="font-medium text-sm text-primaryDarker">R$ 2500</p>
+        <p className="font-medium text-sm text-primaryDarker">
+          {startDate && endDate ? `R$${differenceInDays(endDate, startDate) * pricePerDay}` ?? 1 : "R$0"}
+        </p>
       </div>
 
       <div className="pb-10 border-b border-b-grayLighter w-full">
-        <Button className="mt-3 w-full">
+        <Button 
+          className="mt-3 w-full"
+          onClick={() => handleSubmit(onSubmit)()}
+        >
           Reservar agora
         </Button>
       </div>
-
     </div>
   );
 };
