@@ -128,3 +128,9 @@ Adicionar novo campo locationDescription no banco de dados, após adicionar pode
 ```bash
 npx prisma migrate dev --name add_location_description
 ```
+
+Adicionado lib React Hook Form para validar fomulários.
+
+```bash
+yarn add react-hook-form
+```
