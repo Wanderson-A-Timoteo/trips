@@ -3,6 +3,7 @@
 import { data } from 'autoprefixer';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 
@@ -21,13 +22,15 @@ const Header = () => {
 
   return(
     <div className='container mx-auto p-5 py-0 h-[93px] flex justify-between items-center'>
-      <div className='relative h=[32px] w=[182px]'>
-        <Image 
-          width={183} 
-          height={40} 
-          src="/images/logo.png" alt="Logo Trips" 
-        />
-      </div>
+      <Link href="/">
+        <div className='relative h=[32px] w=[182px]'>
+          <Image 
+            width={183} 
+            height={40} 
+            src="/images/logo.png" alt="Logo Trips" 
+          />
+        </div>
+      </Link>
       
       {status === "unauthenticated" && (
         <button 
