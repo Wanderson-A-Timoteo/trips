@@ -20,14 +20,15 @@ function DatePicker(
   ref: LegacyRef<HTMLInputElement> | undefined
 ) {
   const datePickerClassName = twMerge(
-    className,
     "rounded-lg border border-gray-300 bg-white p-2 text-sm font-normal text-dark placeholder-black placeholder-opacity-20 outline-none transition-all focus:ring-1 focus:ring-primary",
-    error ? "border-red-500" : ""
+    error ? "border-red-500" : "",
+    className,
   );
 
   return (
     <div className="flex w-full flex-col">
       <_DatePicker
+        dateFormat="dd/MM/yyyy"
         locale="pt-BR"
         wrapperClassName="w-full"
         className={datePickerClassName}
