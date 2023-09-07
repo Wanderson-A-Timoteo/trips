@@ -22,10 +22,7 @@ interface TripReservationForm {
   endDate: Date | null;
 }
 
-const TripReservation = ({ tripId, tripStartDate, tripEndDate, maxGuests, pricePerDay }: TripReservationProps) => {
-
-  const router = useRouter();
-
+const TripReservation = ({ tripId, maxGuests, tripStartDate, tripEndDate, pricePerDay }: TripReservationProps) => {
   const {
     register,
     handleSubmit,
@@ -35,20 +32,22 @@ const TripReservation = ({ tripId, tripStartDate, tripEndDate, maxGuests, priceP
     setError,
   } = useForm<TripReservationForm>();
 
+  const router = useRouter();
+
   const onSubmit = async (data: TripReservationForm) => {
-    const response = await fetch('http://localhost:3000/api/trips/check', {
+    const response = await fetch("http://localhost:3000/api/trips/check", {
       method: "POST",
       body: Buffer.from(
         JSON.stringify({
           startDate: data.startDate,
           endDate: data.endDate,
-          tripId
+          tripId,
         })
       ),
     });
 
     const res = await response.json();
-    
+
     if (res?.error?.code === "TRIP_ALREADY_RESERVED") {
       setError("startDate", {
         type: "manual",
@@ -158,10 +157,7 @@ const TripReservation = ({ tripId, tripStartDate, tripEndDate, maxGuests, priceP
       </div>
 
       <div className="pb-10 border-b border-b-grayLighter w-full">
-        <Button 
-          className="mt-3 w-full"
-          onClick={() => handleSubmit(onSubmit)()}
-        >
+        <Button onClick={() => handleSubmit(onSubmit)()} className="mt-3 w-full">
           Reservar agora
         </Button>
       </div>
