@@ -34,19 +34,23 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
         }),
       });
 
-      const { trip, totalPrice } = await response.json();
+      const res = await response.json();
 
-      setTrip(trip);
-      setTotalPrice(totalPrice);
+      if (res?.error) {
+        return router.push("/");
+      }
+
+      setTrip(res.trip);
+      setTotalPrice(res.totalPrice);
     };
 
-    // Verifica se usuário esta autenticado ao reservar uma viagem
+// Verifica se usuário esta autenticado ao reservar uma viagem
     if (status === "unauthenticated") {
       router.push("/");
     }
 
     fetchTrip();
-  }, [status]);
+  }, [status, searchParams, params, router]);
 
   if (!trip) return null;
 
@@ -93,7 +97,7 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
         <h3 className="font-semibold mt-5">Hóspedes</h3>
         <p>{guests} hóspedes</p>
 
-        <Button className="mt-5" onClick={handleBuyClick}>
+        <Button className="mt-5">
           Finalizar Compra
         </Button>
       </div>
