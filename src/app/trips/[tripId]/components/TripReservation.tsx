@@ -4,6 +4,7 @@ import Button from "@/components/Button";
 import DatePicker from "@/components/DatePicker";
 import Input from "@/components/Input";
 import { differenceInDays } from "date-fns";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 
@@ -22,6 +23,8 @@ interface TripReservationForm {
 }
 
 const TripReservation = ({ tripId, tripStartDate, tripEndDate, maxGuests, pricePerDay }: TripReservationProps) => {
+
+  const router = useRouter();
 
   const {
     register,
@@ -59,7 +62,7 @@ const TripReservation = ({ tripId, tripStartDate, tripEndDate, maxGuests, priceP
     }
 
     if (res?.error?.code === "INVALID_START_DATE") {
-      setError("startDate", {
+      return setError("startDate", {
         type: "manual",
         message: "Data inválida.",
       });
@@ -71,6 +74,10 @@ const TripReservation = ({ tripId, tripStartDate, tripEndDate, maxGuests, priceP
         message: "Data inválida.",
       });
     }
+
+    router.push(
+      `/trips/${tripId}/confirmation?startDate=${data.startDate?.toISOString()}&endDate=${data.endDate?.toISOString()}&guests=${data.guests}`
+    );
   };
 
   const startDate = watch("startDate");
