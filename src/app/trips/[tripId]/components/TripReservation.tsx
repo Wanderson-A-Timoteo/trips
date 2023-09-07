@@ -59,7 +59,7 @@ const TripReservation = ({ tripId, tripStartDate, tripEndDate, maxGuests, priceP
     }
 
     if (res?.error?.code === "INVALID_START_DATE") {
-      return setError("startDate", {
+      setError("startDate", {
         type: "manual",
         message: "Data inválida.",
       });
@@ -140,6 +140,7 @@ const TripReservation = ({ tripId, tripStartDate, tripEndDate, maxGuests, priceP
         className="mt-4"
         error={!!errors?.guests}
         errorMessage={errors?.guests?.message}
+        type="number"
       />
 
       <div className="flex justify-between mt-3">
