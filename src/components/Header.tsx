@@ -1,6 +1,5 @@
 "use client"
 
-import { data } from 'autoprefixer';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -53,8 +52,14 @@ const Header = () => {
             className='rounded-full shadow-md' 
           />
           {menuIsOpen && (
-            <div className='z-50 absolute top-16 left-0 w-full bg-slate-100 rounded-lg shadow-md flex flex-col justify-center items-center'>
-              <button className='text-primary text-sm font-semibold p-2' onClick={handleLogoutClick}>
+            <div className='z-50 absolute top-16 right-0 w-[120px] h-[100px] bg-slate-100 rounded-lg shadow-md flex flex-col justify-center items-center'>
+              <Link href={'/my-trips'}>
+                <button className='text-primary text-sm font-semibold p-2 border-b border-gray-300 border-solid hover:text-primaryDarker hover:bg-white hover:w-full' onClick={handleLogoutClick}>
+                  Minhas Viagens
+                </button>
+              </Link>
+
+              <button className='text-primary text-sm font-semibold p-2 hover:text-primaryDarker hover:bg-white hover:w-full' onClick={handleLogoutClick}>
                 Logout
               </button>
             </div>
@@ -65,4 +70,3 @@ const Header = () => {
   )
 };
 export default Header;
-
