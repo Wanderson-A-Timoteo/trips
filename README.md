@@ -146,3 +146,65 @@ Adicionar lib **_React Toastify_**
 ```bash
 yarn add react-toastify
 ```
+
+Adicionar forma de pagamento com **_Stripe_**
+
+```bash
+yarn add stripe
+```
+
+Adicionar lib **_Stripe-js_**
+
+```bash
+yarn add @stripe/stripe-js
+```
+
+Para instalar a Stripe CLI em distribuições baseadas em Debian e Ubuntu:
+
+1 - Criar uma conta no site da **_Stripe_**
+[Stripe register](https://dashboard.stripe.com/register)
+
+2 - Adicione a chave GPG da Stripe CLI ao conjunto de chaves de fonte do apt:
+
+```bash
+curl -s https://packages.stripe.dev/api/security/keypair/stripe-cli-gpg/public | gpg --dearmor | sudo tee /usr/share/keyrings/stripe.gpg
+```
+
+3 - Adicione o repositório do apt da CLI à lista de fontes do apt:
+
+```bash
+echo "deb [signed-by=/usr/share/keyrings/stripe.gpg] https://packages.stripe.dev/stripe-cli-debian-local stable main" | sudo tee -a /etc/apt/sources.list.d/stripe.list
+```
+
+4 - Atualize a lista de pacotes:
+
+```bash
+sudo apt update
+```
+
+5 - Instale a CLI:
+
+```bash
+sudo apt install stripe
+```
+
+6 - Entre na CLI
+Entre na sua conta de usuário Stripe e autentique para gerar um conjunto de chaves restritas.
+
+```bash
+stripe login
+```
+
+7 - Pressione a tecla Enter no teclado para concluir o processo de autenticação no navegador.
+
+```bash
+Your pairing code is: enjoy-enough-outwit-win
+This pairing code verifies your authentication with Stripe.
+Press Enter to open the browser or visit https://dashboard.stripe.com/stripecli/confirm_auth?t=THQdJfL3x12udFkNorJL8OF1iFlN8Az1 (^C to quit)
+```
+
+8 - Será solicitado usuário e senha para autenticação.
+
+```bash
+Informe o usuário e senha que você cadastrou ao criar sua conta no site da Stripe.
+```
