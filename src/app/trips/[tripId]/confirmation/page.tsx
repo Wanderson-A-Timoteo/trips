@@ -46,7 +46,6 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
       setTotalPrice(res.totalPrice);
     };
 
-    // Verifica se usuário esta autenticado ao reservar uma viagem
     if (status === "unauthenticated") {
       router.push("/");
     }
@@ -68,7 +67,7 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
           totalPrice,
           coverImage: trip.coverImage,
           name: trip.name,
-          description: trip.description
+          description: trip.description,
         })
       ),
     });
@@ -77,13 +76,11 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
       return toast.error("Ocorreu um erro ao realizar a reserva!", { position: "bottom-center" });
     }
 
-    const {sessionId} = await res.json()
-  
+    const { sessionId } = await res.json();
+
     const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY as string);
 
     await stripe?.redirectToCheckout({ sessionId });
-
-    //router.push("/");
 
     toast.success("Reserva realizada com sucesso!", { position: "bottom-center" });
   };
@@ -93,7 +90,7 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
   const guests = searchParams.get("guests");
 
   return (
-    <div className="container mx-auto p-5">
+    <div className="container mx-auto p-5 lg:max-w-[600px]">
       <h1 className="font-semibold text-xl text-primaryDarker">Sua viagem</h1>
 
       {/* CARD */}
